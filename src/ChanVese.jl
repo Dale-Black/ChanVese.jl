@@ -1,5 +1,11 @@
 module ChanVese
+using DistanceTransforms
 
-# Write your package code here.
+include("initializers.jl")
+
+export
+    # initializers.jl
+    checkerboard,
+    disk
 
 end

@@ -1,6 +1,2 @@
-using ChanVese
-using Test
-
-@testset "ChanVese.jl" begin
-    # Write your tests here.
-end
+include("imports.jl")
+include("initializers.jl")

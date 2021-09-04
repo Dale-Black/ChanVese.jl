@@ -3,6 +3,10 @@ uuid = "5a218058-8af7-4c90-a059-51daa47df457"
 authors = ["Dale-Black <djblack@uci.edu> and contributors"]
 version = "0.1.0"
 
+[deps]
+DistanceTransforms = "71182807-4d06-4237-8dd0-bdafe4d097e2"
+TestSetExtensions = "98d24dd4-01ad-11ea-1b02-c9a08f80db04"
+
 [compat]
 julia = "1"
 

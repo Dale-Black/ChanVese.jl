@@ -13,11 +13,7 @@ makedocs(;
         canonical="https://Dale-Black.github.io/ChanVese.jl",
         assets=String[],
     ),
-    pages=[
-        "Home" => "index.md",
-    ],
+    pages=["Home" => "index.md"],
 )
 
-deploydocs(;
-    repo="github.com/Dale-Black/ChanVese.jl",
-)
+deploydocs(; repo="github.com/Dale-Black/ChanVese.jl")
