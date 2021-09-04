@@ -8,6 +8,7 @@ DistanceTransforms = "71182807-4d06-4237-8dd0-bdafe4d097e2"
 TestSetExtensions = "98d24dd4-01ad-11ea-1b02-c9a08f80db04"
 
 [compat]
+TestSetExtensions = "2"
 julia = "1"
 
 [extras]
