@@ -5,6 +5,8 @@ version = "0.1.0"
 
 [deps]
 DistanceTransforms = "71182807-4d06-4237-8dd0-bdafe4d097e2"
+ImageFiltering = "6a3955dd-da59-5b1f-98d4-e7296123deb5"
+Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
 TestSetExtensions = "98d24dd4-01ad-11ea-1b02-c9a08f80db04"
 
 [compat]
