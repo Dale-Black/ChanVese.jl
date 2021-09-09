@@ -26,7 +26,7 @@ or `factor` can be given to decrease the size of the disk.
 - factor: size to decrease the disk, default is
     1 which implies no size change
 """
-function disk(shape, factor=1)
+function disk(shape; factor=1)
     res = ones(shape)
     centerY = Int(round((shape[1] - 1) / 2))
     centerX = Int(round((shape[2] - 1) / 2))

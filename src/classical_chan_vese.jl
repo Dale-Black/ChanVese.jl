@@ -277,10 +277,6 @@ function classical_chan_vese(
     img; μ=0.25, λ₁=1.0, λ₂=1.0, tol=1e-3, max_iter=500, Δt=0.5, reinitial_flag=false
 )
     iter = 0
-    D = ndims(img)
-    if D == 3
-        img = PermutedDimsArray(img, (2, 3, 1))
-    end
     𝚽ⁿ = checkerboard(size(img))
     δ = tol + 1
     img .= img .- minimum(img)
@@ -295,12 +291,7 @@ function classical_chan_vese(
         if reinitial_flag
             𝚽ⁿ .= reinitialize(𝚽ⁿ⁺¹, Δt)
         else
-            if D == 3
-                r = axes(𝚽ⁿ⁺¹)
-                𝚽ⁿ .= 𝚽ⁿ⁺¹[:, :, first(r[3])]
-            else
-                𝚽ⁿ .= 𝚽ⁿ⁺¹
-            end
+            𝚽ⁿ .= 𝚽ⁿ⁺¹
         end
 
         iter += 1
