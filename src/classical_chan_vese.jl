@@ -39,12 +39,8 @@ Modified Dirac Delta function
 """
 δₕ(x, h=1) = h ./ (h .^ 2 .+ x .^ 2)
 
+# Equations for `calculate_variation`
 raw"""
-	calculate_variation(img, 𝚽ⁿ, μ, λ₁, λ₂, Δt)
-
-Calculates the variation of level set `𝚽ⁿ` based on algorithm parameters.
-Solves the set of equations from the given paper below:
-
 ```math
 \begin{aligned}
 	\phi_{i+} 	&= \phi_{i, j+1}^n - \phi_{i, j}^n \\
@@ -81,6 +77,13 @@ D = -\lambda_{1} (u_{0_{i,j}} - c_1*(\phi_{i,j}^n))^2 + \lambda_{2} (u_{0_{i,j}}
 \end{aligned}
 \tag{9e}
 ```
+"""
+"""
+	calculate_variation(img, 𝚽ⁿ, μ, λ₁, λ₂, Δt)
+
+Calculates the variation of level set `𝚽ⁿ` based on algorithm parameters.
+Solves the set of equations from the given paper below:
+
 
 # Arguments
 - img: input image
@@ -137,12 +140,9 @@ function calculate_variation(img, 𝚽ⁿ, μ, λ₁, λ₂, Δt)
         (𝚽ⁿ .+ Δt .* δₕ(𝚽ⁿ) .* (μ * C .+ D)) ./
         (1 .+ μ .* Δt .* δₕ(𝚽ⁿ) .* (C₁ .+ C₂ .+ C₃ .+ C₄))
 end
+
+# Equations for `calculate_reinitial`
 raw"""
-	calculate_reinitial(𝚽, Δt)
-
-Calculates the way in which to reinitialize the level set `𝚽` based on 
-algorithm parameters. Solves the set of equations from the given paper below:
-
 ```math
 \begin{aligned}
 	a &= (\Psi_{i,j} - \Psi_{i-1,j}) \\
@@ -178,6 +178,12 @@ algorithm parameters. Solves the set of equations from the given paper below:
 \end{aligned}
 \tag{11b}
 ```
+"""
+"""
+	calculate_reinitial(𝚽, Δt)
+
+Calculates the way in which to reinitialize the level set `𝚽` based on 
+algorithm parameters. Solves the set of equations from the given paper below:
 
 # Arguments
 - 𝚽: level set function
@@ -234,7 +240,7 @@ function reinitialize(𝚽, Δt, max_reiter=5)
     return 𝚽
 end
 
-raw"""
+"""
 	classical_chan_vese(
 		img; μ=0.25, λ₁=1.0, λ₂=1.0, tol=1e-3, max_iter=500, Δt=0.5, reinitial_flag=false
 	)
